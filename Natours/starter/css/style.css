@@ -35,4 +35,45 @@ body {
   background-position: top;
   /* use clippypath website */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+}
+
+.logo-box {
+    position: absolute;
+    /* when you set the position: absolute you will then normally set the top and left properties 
+    I set position: relative on the parent element .header because .logo-box will reference header
+    for top and left count
+    */
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.text-box {
+    /* center text */
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    /* using display block because a span is an inline element and we want OUTDOORS to be on its own line */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    
+}
+
+.heading-primary-sub {
+    /* also using display block for this span occupy 100% width */
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }
