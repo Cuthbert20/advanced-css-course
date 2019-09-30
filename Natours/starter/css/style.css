@@ -54,6 +54,16 @@ body {
 
 .text-box {
     /* center text */
+    /* I am setting position to absolue to the parent element, which is .header which has a position of relative
+      when messuring top &|| left the 50% of the width or height of the parent element.
+      I used transform: Translate(-40%, -50%) to get the .text-box element to be centered instead of on the left edge of the element.
+      see Advanced CSS & SASS #7, 13:00.
+    */
+    position: absolute;
+    top: 40%; /* in relation to the parent elemnt */
+    left: 50%; /* in relation to the parent elemnt */
+    transform: translate(-50%, -50%); /* in relation to the element itself */
+    
 }
 
 .heading-primary {
