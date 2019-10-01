@@ -77,7 +77,10 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
-    
+    /* animation name and duration are the only two required properties for an animation but, 
+    there are a lot more properties that you can set */
+    animation-name: moveInLeft;
+    animation-duration: 5s;
 }
 
 .heading-primary-sub {
@@ -86,4 +89,24 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+}
+
+@keyframes moveInLeft{
+  /* setting up animation */
+  0% {
+    /* begining of animation the element will be invisible ie opacity 0 */
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+
+  }
+
+  100% {
+    /* the element will be totally visible at the end of the animation */
+    opacity: 1;
+    /* we want the element to end up at its position, that is why we use 0 */
+    transform: translateX(0);
+  }
 }
