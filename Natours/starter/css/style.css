@@ -28,7 +28,11 @@ body {
 .header {
   height: 95vh;
   /* background image with linear gradient */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.773), rgba(130, 165, 153, 0.794)),
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.773),
+      rgba(130, 165, 153, 0.794)
+    ),
     url("../img/hero.jpg");
   background-size: cover;
   /* makes sure whatever the viewport size the background image will always stay on the top */
@@ -39,74 +43,100 @@ body {
 }
 
 .logo-box {
-    position: absolute;
-    /* when you set the position: absolute you will then normally set the top and left properties 
+  position: absolute;
+  /* when you set the position: absolute you will then normally set the top and left properties 
     I set position: relative on the parent element .header because .logo-box will reference header
     for top and left count
     */
-    top: 40px;
-    left: 40px;
+  top: 40px;
+  left: 40px;
 }
 
 .logo {
-    height: 35px;
+  height: 35px;
 }
 
 .text-box {
-    /* center text */
-    /* I am setting position to absolue to the parent element, which is .header which has a position of relative
+  /* center text */
+  /* I am setting position to absolue to the parent element, which is .header which has a position of relative
       when messuring top &|| left the 50% of the width or height of the parent element.
       I used transform: Translate(-40%, -50%) to get the .text-box element to be centered instead of on the left edge of the element.
       see Advanced CSS & SASS #7, 13:00.
     */
-    position: absolute;
-    top: 40%; /* in relation to the parent elemnt */
-    left: 50%; /* in relation to the parent elemnt */
-    transform: translate(-50%, -50%); /* in relation to the element itself */
-    
+  position: absolute;
+  top: 40%; /* in relation to the parent elemnt */
+  left: 50%; /* in relation to the parent elemnt */
+  transform: translate(-50%, -50%); /* in relation to the element itself */
 }
 
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
+  color: #fff;
+  text-transform: uppercase;
+  /* to get ride of shake on animation use backface-visibility: hidden; */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
-    /* using display block because a span is an inline element and we want OUTDOORS to be on its own line */
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    /* animation name and duration are the only two required properties for an animation but, 
+  /* using display block because a span is an inline element and we want OUTDOORS to be on its own line */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  /* animation name and duration are the only two required properties for an animation but, 
     there are a lot more properties that you can set */
-    animation-name: moveInLeft;
-    animation-duration: 5s;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* with ease-in animation starts slower then ends faster ease-out is the reverse of that */
+  /* animation-timing-function: ease-in; */
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
-    /* also using display block for this span occupy 100% width */
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
+  /* also using display block for this span occupy 100% width */
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  /* using shorthand property animation, (animationName, duration, timing-function */
+  animation: moveInRight 1s ease-out;
 }
-
-@keyframes moveInLeft{
+/* creating an animation using keyframes */
+@keyframes moveInLeft {
   /* setting up animation */
   0% {
     /* begining of animation the element will be invisible ie opacity 0 */
     opacity: 0;
     transform: translateX(-100px);
+    /* we could also use things like rotate(-50deg); in the transform line */
   }
 
   80% {
-
+    transform: translateX(10px);
   }
 
   100% {
     /* the element will be totally visible at the end of the animation */
     opacity: 1;
     /* we want the element to end up at its position, that is why we use 0 */
+    transform: translateX(0);
+  }
+}
+
+/* creating an animation using keyframes */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }
