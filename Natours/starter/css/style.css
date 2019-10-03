@@ -67,6 +67,8 @@ body {
   top: 40%; /* in relation to the parent elemnt */
   left: 50%; /* in relation to the parent elemnt */
   transform: translate(-50%, -50%); /* in relation to the element itself */
+  /* centers all text including the white-btn/a element */
+  text-align: center;
 }
 
 .heading-primary {
@@ -74,6 +76,7 @@ body {
   text-transform: uppercase;
   /* to get ride of shake on animation use backface-visibility: hidden; */
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -139,4 +142,79 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  /* top & bottom, left & right */
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  /* active psudo class is when the element is being clicked */
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* pseudo elements allow you to style a specific part of the selected element(s) its like creating a virtual element before & after,
+You always have to set content & display for pseudo elements*/
+.btn::after {
+  content: "";
+  display: inline-block;
+  /* height and width of .btn element */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  /* position needs to have a reference ie an element to reference its position from 
+  so we need to add position: relative to the element we want it to reference ie its parent element (the .btn) */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* using z-index to hide element, until we hover */
+  z-index: -1;
+  transition: all 0.4s;
+}
+.btn-white::after {
+  background-color: #fff;
+}
+.btn:hover::after {
+  /* we now want the btn to not be hidden */
+  /* scale increases size of element */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* trick to fade out set transition all .4s to .btn::after pseudo element then use opacity on hover */
+  opacity: 0;
+}
+
+.btn-animated {
+  /* animation name, duration, timing-function, delay */
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* using animation-fill-mode backwars so that the button does not dispaly until the animation moveInBottom runs */
+  animation-fill-mode: backwards;
 }
