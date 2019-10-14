@@ -15,14 +15,19 @@ Dark green: #28b485
   box-sizing: border-box;
 }
 
+html {
+  /* root font size 1rem =  10px now */
+  font-size: 10px;
+}
+
 /* using inheritance property for font properties */
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
 }
 
 .header {
@@ -48,12 +53,12 @@ body {
     I set position: relative on the parent element .header because .logo-box will reference header
     for top and left count
     */
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -76,15 +81,15 @@ body {
   text-transform: uppercase;
   /* to get ride of shake on animation use backface-visibility: hidden; */
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* using display block because a span is an inline element and we want OUTDOORS to be on its own line */
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   /* animation name and duration are the only two required properties for an animation but, 
     there are a lot more properties that you can set */
   animation-name: moveInLeft;
@@ -99,9 +104,9 @@ body {
 .heading-primary-sub {
   /* also using display block for this span occupy 100% width */
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   /* using shorthand property animation, (animationName, duration, timing-function */
   animation: moveInRight 1s ease-out;
 }
@@ -111,12 +116,12 @@ body {
   0% {
     /* begining of animation the element will be invisible ie opacity 0 */
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
     /* we could also use things like rotate(-50deg); in the transform line */
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -131,11 +136,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -147,7 +152,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
   100% {
     opacity: 1;
@@ -160,22 +165,22 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   /* top & bottom, left & right */
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   /* active psudo class is when the element is being clicked */
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .btn-white {
@@ -191,7 +196,7 @@ You always have to set content & display for pseudo elements*/
   /* height and width of .btn element */
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* position needs to have a reference ie an element to reference its position from 
   so we need to add position: relative to the element we want it to reference ie its parent element (the .btn) */
   position: absolute;
