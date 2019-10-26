@@ -8,16 +8,21 @@ Dark green: #28b485
 */
 
 /* universal selector */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  /* change box model so the borders and padding are no long added to total with and height */
-  box-sizing: border-box;
+  /* setting box-sizing to inherit then whatever we set box-sizing to on the body the page will inherit */
+  box-sizing: inherit;
 }
 
 html {
   /* root font size 1rem =  10px now */
-  font-size: 10px;
+  /* we can't set root font-size to 10px because users will not be able to adjust the font size instead
+  we need to use % so the default font-size is 16px so we need to divide 10 by 16 and this will give us
+  the correct % to use which is 62.5% */
+  font-size: 62.5%;
 }
 
 /* using inheritance property for font properties */
@@ -29,6 +34,8 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+  /* change box model so the borders and padding are no long added to total with and height */
+  box-sizing: border-box;
 }
 
 .header {
